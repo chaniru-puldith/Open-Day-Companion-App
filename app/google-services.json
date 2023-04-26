@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "368664874152",
+    "project_id": "opendaycompanionapp",
+    "storage_bucket": "opendaycompanionapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368664874152:android:ff9e4c264272429a84c69d",
+        "android_client_info": {
+          "package_name": "com.deadhunter.logiapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368664874152-t510cvciq1n85hu3uarm21d703q12618.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEtgIvt_al4SMNeU0fvKmgjnednaeV-lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368664874152-t510cvciq1n85hu3uarm21d703q12618.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368664874152:android:f7234249db71fe3d84c69d",
+        "android_client_info": {
+          "package_name": "com.deadhunter.opendaycompanionapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368664874152-t510cvciq1n85hu3uarm21d703q12618.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEtgIvt_al4SMNeU0fvKmgjnednaeV-lU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368664874152-t510cvciq1n85hu3uarm21d703q12618.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

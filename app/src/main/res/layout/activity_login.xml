@@ -1,0 +1,109 @@
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="123dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="25dp">
+
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wellcome To"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CINEC Campus"
+                android:textSize="35dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/blue_border"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/email"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey_font" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false"
+                app:passwordToggleTint="@color/grey_font">
+
+                <EditText
+                    android:id="@+id/login_pwd"
+                    android:layout_width="350dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/blue_border"
+                    android:drawableStart="@drawable/baseline_password_24"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey_font" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/log_in"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/regRedirectText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:text="@string/register_now_redirect_text"
+                android:textColor="#757575"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

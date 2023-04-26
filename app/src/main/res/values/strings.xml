@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Open Day Application</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="welcome_to">WELCOME TO</string>
+    <string name="cinec_campus">CINEC CAMPUS</string>
+    <string name="register_now">Register Now</string>
+    <string name="log_in">Log In</string>
+    <string name="home">Home</string>
+    <string name="register_now_redirect_text">Doesn\'t Have an Account? Register Now</string>
+    <string name="password_conditions">Password should include:
+        \n\t\t\t*8-16 characters
+        \n\t\t\t*At least one special character
+        \n\t\t\t*At least one numeric character</string>
+    <string name="get_course_details">Get Course Details</string>
+</resources>
