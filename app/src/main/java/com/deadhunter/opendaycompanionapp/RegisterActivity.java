@@ -18,18 +18,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deadhunter.opendaycompanionapp.databinding.ActivityRegisterBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -40,14 +43,29 @@ public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth;
     CollectionReference ref = db.collection("users");
 
     EditText txtPwd;
     TextView txtLower, txtUpper, txtNum, txtChar, txtPwdConfirm;
 
     Button regBtn;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -189,6 +207,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                 throw new RuntimeException(e);
                                             }
                                             User user = new User(name,email,mobile,encryptedPwd);
+                                            String password = encryptedPwd;
                                             db.collection("users")
                                                     .add(user)
                                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -205,9 +224,26 @@ public class RegisterActivity extends AppCompatActivity {
                                                                     "Registration Failed", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
+
+                                            mAuth.createUserWithEmailAndPassword(email, password)
+                                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                                            if (task.isSuccessful()) {
+                                                                // Sign in success, update UI with the signed-in user's information
+                                                                Toast.makeText(RegisterActivity.this, "Account Created.",
+                                                                        Toast.LENGTH_SHORT).show();
+                                                            } else {
+                                                                // If sign in fails, display a message to the user.
+                                                                Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                                                        Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
                                         }
                                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                         startActivity(intent);
+                                        finish();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
