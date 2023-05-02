@@ -77,10 +77,12 @@ public class RegisterActivity extends AppCompatActivity {
         txtNum = findViewById(R.id.txtNumber);
         txtChar = findViewById(R.id.txtChar);
 
-
+        // Catching the data from user-input
         final EditText mobileText = findViewById(R.id.reg_mobile);
         final EditText emailText = findViewById(R.id.reg_email);
         regBtn = findViewById(R.id.reg_btn);
+
+        // Changing text color red to invalid email and disable/enable the register button
         mobileText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -107,6 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         });
 
+        // Changing text color red to invalid email and disable/enable the login button
         emailText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -131,6 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        // Changing text color red to invalid email and disable/enable the login button
         txtPwd.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -150,6 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        // Changing text color red to invalid email and disable/enable the login button
         txtPwdConfirm.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -179,35 +184,44 @@ public class RegisterActivity extends AppCompatActivity {
         binding.regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Retrieve the user inputted data
                 String email = binding.regEmail.getText().toString();
                 String pwd = binding.regPwd.getText().toString();
                 String pwd_confirm = binding.pwdConfirm.getText().toString();
                 String name = binding.regName.getText().toString();
                 String mobile = binding.regMobile.getText().toString();
 
+                // Checking if the fields are empty
                 if (email.equals("") || pwd.equals("") || pwd_confirm.equals("") ||
                         name.equals("") || mobile.equals("")) {
                     Toast.makeText(RegisterActivity.this, "All fields are mandatory",
                             Toast.LENGTH_SHORT).show();
                 } else{
+                    // Checking if the password and confirmation password are matching
                     if (pwd.equals(pwd_confirm)) {
+                        // Checking if the email is already exists in the Firestore
                         Query query = ref.whereEqualTo("email", email);
                         query.get()
                                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                     @Override
                                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                        // If email already exists in the database show an error
                                         if (queryDocumentSnapshots.size() > 0) {
                                             Toast.makeText(RegisterActivity.this,
                                                     "Email already exist, please login",Toast.LENGTH_SHORT).show();
                                         } else{
+                                            // Encrypting the password before storing
                                             String encryptedPwd = null;
                                             try {
                                                 encryptedPwd = encrypt(pwd);
                                             } catch (Exception e) {
                                                 throw new RuntimeException(e);
                                             }
+
+                                            // Creating an user object using user-inputted data
                                             User user = new User(name,email,mobile,encryptedPwd);
-                                            String password = encryptedPwd;
+
+                                            // Saving user data in Firestore
                                             db.collection("users")
                                                     .add(user)
                                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -225,7 +239,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                         }
                                                     });
 
-                                            mAuth.createUserWithEmailAndPassword(email, password)
+                                            // Creating user in Firebase Authentication
+                                            mAuth.createUserWithEmailAndPassword(email, pwd)
                                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -233,6 +248,14 @@ public class RegisterActivity extends AppCompatActivity {
                                                                 // Sign in success, update UI with the signed-in user's information
                                                                 Toast.makeText(RegisterActivity.this, "Account Created.",
                                                                         Toast.LENGTH_SHORT).show();
+                                                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                        Toast.makeText(RegisterActivity.this, "Please Verify account before login.",
+                                                                                Toast.LENGTH_LONG).show();
+                                                                    }
+                                                                });
+
                                                             } else {
                                                                 // If sign in fails, display a message to the user.
                                                                 Toast.makeText(RegisterActivity.this, "Authentication failed.",
@@ -241,18 +264,15 @@ public class RegisterActivity extends AppCompatActivity {
                                                         }
                                                     });
                                         }
+
+                                        // Open the LoginActivity
                                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d("TAG", "Error: " + e.getMessage());
-                                    }
                                 });
                     } else {
+                        // If passwords are not matching show an error
                         Toast.makeText(RegisterActivity.this,
                                 "Invalid Password", Toast.LENGTH_SHORT).show();
                     }
@@ -261,6 +281,8 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+
+    // Method for encrypting password
     private String encrypt(String password) throws Exception {
         String ALGORITHM = "Blowfish";
         String MODE = "Blowfish/CBC/PKCS5Padding";
@@ -274,6 +296,7 @@ public class RegisterActivity extends AppCompatActivity {
         return Base64.encodeToString(values, Base64.DEFAULT);
     }
 
+    // Method for validate mobile number
     boolean validateMobile(String input){
         Pattern p = Pattern.compile("[0-9]{10}");
         Matcher m = p.matcher(input);
@@ -281,6 +304,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    // Method for validate password
     public void validatePassword(String password){
         Pattern upperCase = Pattern.compile("[A-Z]");
         Pattern lowerCase = Pattern.compile("[a-z]");

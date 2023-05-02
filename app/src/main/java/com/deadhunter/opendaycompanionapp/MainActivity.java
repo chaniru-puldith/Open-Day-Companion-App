@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Setting up slideshow on main menu
         ImageSlider imageSlider = findViewById(R.id.slider);
 
         List<SlideModel> slideModels = new ArrayList<>();
@@ -37,8 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
+        // Initialize the logout button
         logout = findViewById(R.id.logout_btn);
 
+        // Logout the user if the logout button clicked
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        // Initializing the CardViews on the main menu
         agenda = (CardView) findViewById(R.id.agenda);
         contact = (CardView) findViewById(R.id.contact);
         courses = (CardView) findViewById(R.id.courses);
@@ -65,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    // Declaring what should be happened after clicking each CardView
     @Override
     public void onClick(View v) {
         Intent i;

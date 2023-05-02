@@ -16,4 +16,5 @@
         \n\t\t\t*At least one special character
         \n\t\t\t*At least one numeric character</string>
     <string name="get_course_details">Get Course Details</string>
+    <string name="reset_password">Reset Password</string>
 </resources>

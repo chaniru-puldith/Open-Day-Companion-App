@@ -1,8 +1,10 @@
 package com.deadhunter.opendaycompanionapp;
 
+// User class for create user objects
 public class User {
     String name, email, mobile, password;
 
+    // Constructors
     public User() {
     }
 
@@ -13,6 +15,8 @@ public class User {
         this.password = password;
     }
 
+
+    // Getters and Setters
     public String getName() {
         return name;
     }
