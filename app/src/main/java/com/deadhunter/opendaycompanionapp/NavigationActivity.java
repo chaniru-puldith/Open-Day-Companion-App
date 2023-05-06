@@ -8,18 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 
 public class NavigationActivity extends AppCompatActivity implements View.OnClickListener{
-    private CardView fac1, fac2, fac3, fac4, fac5, fac6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-        fac1 = (CardView) findViewById(R.id.fac1);
-        fac2 = (CardView) findViewById(R.id.fac2);
-        fac3 = (CardView) findViewById(R.id.fac3);
-        fac4 = (CardView) findViewById(R.id.fac4);
-        fac5 = (CardView) findViewById(R.id.fac5);
-        fac6 = (CardView) findViewById(R.id.fac6);
+        CardView fac1 = (CardView) findViewById(R.id.fac1);
+        CardView fac2 = (CardView) findViewById(R.id.fac2);
+        CardView fac3 = (CardView) findViewById(R.id.fac3);
+        CardView fac4 = (CardView) findViewById(R.id.fac4);
+        CardView fac5 = (CardView) findViewById(R.id.fac5);
+        CardView fac6 = (CardView) findViewById(R.id.fac6);
 
         fac1.setOnClickListener((View.OnClickListener) this);
         fac2.setOnClickListener((View.OnClickListener) this);

@@ -1,8 +1,5 @@
 package com.deadhunter.opendaycompanionapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,10 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.deadhunter.opendaycompanionapp.databinding.ActivityResetPasswordBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ResetPasswordActivity extends AppCompatActivity {
@@ -63,25 +59,16 @@ public class ResetPasswordActivity extends AppCompatActivity {
             if (rEmail.equals("")) {
                 Toast.makeText(this, "Email is mandatory", Toast.LENGTH_SHORT).show();
             } else {
-                mAuth.sendPasswordResetEmail(binding.resetEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(ResetPasswordActivity.this, "Please check your email!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(ResetPasswordActivity.this, "Enter valid email!", Toast.LENGTH_SHORT).show();
-                        }
+                mAuth.sendPasswordResetEmail(binding.resetEmail.getText().toString()).addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(ResetPasswordActivity.this, "Please check your email!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ResetPasswordActivity.this, "Enter valid email!", Toast.LENGTH_SHORT).show();
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ResetPasswordActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    }
-                });
+                }).addOnFailureListener(e -> Toast.makeText(ResetPasswordActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show());
 
 
             }

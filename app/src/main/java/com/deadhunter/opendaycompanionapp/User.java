@@ -4,10 +4,7 @@ package com.deadhunter.opendaycompanionapp;
 public class User {
     String name, email, mobile, password;
 
-    // Constructors
-    public User() {
-    }
-
+    // Constructor
     public User(String name, String email, String mobile, String password) {
         this.name = name;
         this.email = email;

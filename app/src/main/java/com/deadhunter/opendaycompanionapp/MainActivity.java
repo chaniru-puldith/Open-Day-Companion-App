@@ -19,7 +19,6 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private CardView  agenda, contact, courses, gMap, navi, qr;
     ImageButton logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +41,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logout = findViewById(R.id.logout_btn);
 
         // Logout the user if the logout button clicked
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(MainActivity.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
-            }
+        logout.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(MainActivity.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
         });
 
         // Initializing the CardViews on the main menu
-        agenda = (CardView) findViewById(R.id.agenda);
-        contact = (CardView) findViewById(R.id.contact);
-        courses = (CardView) findViewById(R.id.courses);
-        gMap = (CardView) findViewById(R.id.gMap);
-        qr = (CardView) findViewById(R.id.qr);
-        navi = (CardView) findViewById(R.id.navi);
+        CardView agenda = (CardView) findViewById(R.id.agenda);
+        CardView contact = (CardView) findViewById(R.id.contact);
+        CardView courses = (CardView) findViewById(R.id.courses);
+        CardView gMap = (CardView) findViewById(R.id.gMap);
+        CardView qr = (CardView) findViewById(R.id.qr);
+        CardView navi = (CardView) findViewById(R.id.navi);
 
         agenda.setOnClickListener((View.OnClickListener) this);
         contact.setOnClickListener((View.OnClickListener) this);
