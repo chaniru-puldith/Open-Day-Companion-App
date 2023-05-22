@@ -292,4 +292,12 @@ public class RegisterActivity extends AppCompatActivity {
         regBtn.setEnabled(lowerCase.matcher(password).find() && upperCase.matcher(password).find() && digitCase.matcher(password).find() && password.length() >= 8);
     }
 
+    @Override
+    public void onBackPressed() {
+        finishActivity(0);
+        // Open the LoginActivity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+
+    }
 }
