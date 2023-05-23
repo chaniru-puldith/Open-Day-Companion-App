@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AgendaActivity"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -37,6 +36,7 @@
             android:layout_weight="1"
             android:textSize="17dp"
             android:gravity="center"
+            android:textColor="?attr/text_color"
             android:text="Scan the QR Before Entering and Leaving a Event " />
     </LinearLayout>
 
