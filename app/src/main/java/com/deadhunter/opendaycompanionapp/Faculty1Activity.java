@@ -22,9 +22,7 @@ public class Faculty1Activity extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName()+"/" + R.raw.maritime));
         videoView.start();
-
-        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.maritime);
-        videoView.setVideoURI(videoUri);
+        videoView.setMediaController(null);
 
         // Autoplay the video
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {

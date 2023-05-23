@@ -21,9 +21,7 @@ public class Faculty3Activity extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName()+"/" + R.raw.engineeriing));
         videoView.start();
-
-        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.engineeriing);
-        videoView.setVideoURI(videoUri);
+        videoView.setMediaController(null);
 
         // Autoplay the video
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
