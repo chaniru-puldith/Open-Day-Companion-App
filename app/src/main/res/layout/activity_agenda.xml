@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AgendaActivity"
-    android:background="@color/white">
+    tools:context=".AgendaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,14 +32,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="25 FEB 2023"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="?attr/text_color"
             android:textSize="40dp"
             android:textStyle="bold" />
 
 
     </LinearLayout>
 
-
+    <!--adding scroll view-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -49,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
+            <!--adding card view-->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +56,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="09.00 A.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -134,7 +134,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -151,7 +152,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="10.00 A.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -181,7 +182,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -189,7 +190,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -197,7 +198,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -211,7 +212,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -228,7 +230,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="11.00 A.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -258,7 +260,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -266,7 +268,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -274,7 +276,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -288,7 +290,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -305,7 +308,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -335,7 +338,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -343,7 +346,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -351,7 +354,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -365,7 +368,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -382,7 +386,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="01.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -412,7 +416,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -420,7 +424,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -428,7 +432,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -442,7 +446,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -459,7 +464,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="02.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -489,7 +494,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -497,7 +502,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -505,7 +510,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -519,7 +524,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -536,7 +542,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="03.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -566,7 +572,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -574,7 +580,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -582,7 +588,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -596,7 +602,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -613,7 +620,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="04.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -643,7 +650,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -651,7 +658,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -659,7 +666,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 
@@ -673,7 +680,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -690,7 +698,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="05.00 P.M."
-                            android:textColor="@android:color/darker_gray"
+                            android:textColor="?attr/text_color"
                             android:textSize="20dp"
                             android:textStyle="bold" />
 
@@ -720,7 +728,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="Main Event"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -728,7 +736,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfg"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -736,7 +744,7 @@
                             android:gravity="center"
                             android:padding="2dp"
                             android:text="ejfhvbdfhvbjfignbvlfgincvn"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="?attr/text_color" />
                     </LinearLayout>
 
 

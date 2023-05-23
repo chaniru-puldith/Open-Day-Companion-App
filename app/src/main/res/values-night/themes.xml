@@ -9,8 +9,15 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="background_color">#FF000000</item>
+        <item name="text_color">#FFFF</item>
+        <item name="card_color">#4d4d4d</item>
+        <item name="contactcard_color">#003152</item>
+
+
     </style>
 </resources>

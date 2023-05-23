@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AgendaActivity"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,19 +22,26 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="497dp"
+        app:srcCompat="@drawable/gmap" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="343dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
 
         <Button
             android:id="@+id/gMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue"
-            android:text="Map"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"/>
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/blue"
+            android:text="Map" />
     </LinearLayout>
 
 </LinearLayout>

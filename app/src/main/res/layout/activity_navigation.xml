@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AgendaActivity"
-    android:background="@color/white">
+    tools:context=".AgendaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +40,7 @@
             android:text="CHOOSE YOUR FACULTY"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="?attr/text_color"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +50,7 @@
             android:layout_marginRight="10dp"
             android:justificationMode="inter_word"
             android:text="CINEC is committed to your success. We provide critical resources to assist and guide you as you make progress in your academic program and as you prepare to enter the workforce."
-            android:textColor="@android:color/darker_gray"
+            android:textColor="?attr/text_color"
             android:textSize="18dp" />
     </LinearLayout>
 
@@ -60,7 +59,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
-
+        <!--aading card view-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,19 +73,19 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
-
+                    <!--text view-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Maritime Sciences"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -98,7 +97,7 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -111,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:text="Marine Engineering"
                         android:textAlignment="center"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -131,7 +130,7 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Engineering"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -155,7 +154,7 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -168,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:text="Management"
                         android:textAlignment="center"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -188,7 +187,7 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -200,7 +199,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Health Sciences"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -212,7 +211,7 @@
                 android:layout_margin="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white">
+                app:cardBackgroundColor="?attr/card_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -224,7 +223,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Humanities/Education"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

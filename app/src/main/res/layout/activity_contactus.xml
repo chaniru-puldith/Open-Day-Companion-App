@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".AgendaActivity">
 
@@ -39,7 +38,7 @@
                 android:text="CINEC CAMPUS"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/darker_gray"/>
+                android:textColor="?attr/text_color"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,7 +49,7 @@
                 android:layout_marginRight="20dp"
                 android:text="CINEC Campus established in 1990 and located in the picturesque suburbs of Colombo, Malabe is one of the largest, most diversified and fastest growing non state higher education institutes in Sri, Lanka.\n\nIt caters to over 21,000 registered students annually in approximately 210 different Certificate, Diploma, Higher Diploma, Graduate, Postgraduate and Doctoral programs approved by the Government of Sri Lanka and Universities in Australia, China, Germany, UK, USA and TAFE College in Australia. CINEC has branches in the Northern and Eastern capitals of Sri Lanka and also in a Colombo suburb. CINEC has the rare honor of managing State Maritime Institutes in Seychelles and Fiji with a mandate to upgrade them to international standards and recognition."
                 android:textSize="15dp"
-                android:textColor="@android:color/darker_gray"/>
+                android:textColor="?attr/text_color"/>
 
             <ImageView
                 android:layout_width="355dp"
@@ -60,7 +59,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="431dp"
-                android:background="@color/blue"
+                android:background="?attr/contactcard_color"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -93,7 +92,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/blue_border">
 
 
                 <FrameLayout
@@ -180,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:text="All Copyrights Reserved By CINEC Campus - @2023"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="?text_color"
                     android:textSize="13dp"
                     android:layout_gravity="center"/>
 

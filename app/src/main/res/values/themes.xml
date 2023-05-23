@@ -12,5 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="background_color">#FFFFFFFF</item>
+        <item name="text_color">#FF000000</item>
+        <item name="card_color">#FFFFFFFF</item>
+        <item name="contactcard_color">#2596be</item>
+
     </style>
 </resources>

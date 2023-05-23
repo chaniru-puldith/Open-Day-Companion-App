@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/background_color"
     android:orientation="vertical"
 
     tools:context=".AgendaActivity">
@@ -34,13 +34,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="A – Z COURSES"
+            android:textColor="?attr/text_color"
             android:textSize="30dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="230dp"
             android:src="@drawable/course"/>
-
+        <!--adding text-->
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -49,10 +50,10 @@
             android:layout_margin="10dp"
             android:justificationMode="inter_word"
             android:text="Browse through our wide array of courses and find the one that is right for you."
-            android:textColor="@color/black"
+            android:textColor="?attr/text_color"
             android:textSize="20dp" />
 
-
+        <!--adding button-->
         <Button
             android:id="@+id/course_details"
             android:layout_width="wrap_content"

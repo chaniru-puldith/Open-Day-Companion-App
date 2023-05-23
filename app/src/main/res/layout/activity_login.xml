@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wellcome To"
+                android:textColor="@color/logtextcolor"
                 android:textSize="25dp"/>
 
             <TextView
@@ -37,6 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CINEC Campus"
+                android:textColor="@color/logtextcolor"
                 android:textSize="35dp"/>
         </LinearLayout>
 
