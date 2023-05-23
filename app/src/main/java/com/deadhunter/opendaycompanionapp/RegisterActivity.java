@@ -43,18 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
     Button regBtn;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
@@ -304,4 +292,12 @@ public class RegisterActivity extends AppCompatActivity {
         regBtn.setEnabled(lowerCase.matcher(password).find() && upperCase.matcher(password).find() && digitCase.matcher(password).find() && password.length() >= 8);
     }
 
+    @Override
+    public void onBackPressed() {
+        finishActivity(0);
+        // Open the LoginActivity
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+
+    }
 }

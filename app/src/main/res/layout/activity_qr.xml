@@ -27,7 +27,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="224dp"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="QR Scanner" />
+    </LinearLayout>
 
 
 </LinearLayout>

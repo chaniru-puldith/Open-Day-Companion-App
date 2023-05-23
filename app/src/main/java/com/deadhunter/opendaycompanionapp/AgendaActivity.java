@@ -1,8 +1,8 @@
 package com.deadhunter.opendaycompanionapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AgendaActivity extends AppCompatActivity {
 
@@ -10,5 +10,10 @@ public class AgendaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
+
+
     }
+
+
 }
+
