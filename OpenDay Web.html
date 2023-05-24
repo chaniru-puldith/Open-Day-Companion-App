@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+  <title>Firestore Data</title>
+  <style>
+    #dataContainer {
+      margin-top: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: auto; /* Set the table width to adjust automatically */
+      table-layout: auto; /* Allow table layout to adjust based on content */
+      margin-bottom: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+      white-space: nowrap; /* Prevent line breaks within cells */
+      overflow: hidden; /* Hide any overflowing content */
+      text-overflow: ellipsis; /* Show ellipsis for truncated content */
+
+    }
+    th {
+      background-color: #0074D9;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1><center>Open Day Companion Application</center></h1>
+
+  <div id="dataContainer"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+   apiKey: "AIzaSyD9tEZ5oUhOXw0gU7tlDy2NS83QBpfiuvE",
+  authDomain: "opendaycompanionapp.firebaseapp.com",
+  projectId: "opendaycompanionapp",
+  storageBucket: "opendaycompanionapp.appspot.com",
+  messagingSenderId: "368664874152",
+  appId: "1:368664874152:web:153eb825068f4a5284c69d",
+  measurementId: "G-TH4ECH4ZNX"
+   };
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+
+    var dataContainer = document.getElementById('dataContainer');
+
+   db.collection("attendusers").get().then((querySnapshot) => {
+      var usersTable = document.createElement('table');
+      var usersTableHeader = document.createElement('tr');
+      var nameHeader = document.createElement('th');
+      var enteringTimeHeader = document.createElement('th');
+      var leavingTimeHeader = document.createElement('th');
+      var facultyHeader = document.createElement('th');
+      var engagementTimeHeader = document.createElement('th');
+
+      nameHeader.textContent = 'Email';
+      enteringTimeHeader.textContent = 'Entering Time';
+      leavingTimeHeader.textContent = 'Leaving Time';
+      facultyHeader.textContent = 'Faculty';
+      engagementTimeHeader.textContent = 'Engagement Time';
+
+      usersTableHeader.appendChild(nameHeader);
+      usersTableHeader.appendChild(enteringTimeHeader);
+      usersTableHeader.appendChild(leavingTimeHeader);
+      usersTableHeader.appendChild(facultyHeader);
+      usersTableHeader.appendChild(engagementTimeHeader);
+      usersTable.appendChild(usersTableHeader);
+
+      querySnapshot.forEach((doc) => {
+        var name = doc.data().email;
+        var enteringTime = doc.data().entering_time ? doc.data().entering_time.toDate() : null;
+        var leavingTime = doc.data().leaving_time ? doc.data().leaving_time.toDate() : null;
+
+        var faculty = doc.data().faculty;
+        var engagementTime = calculateEngagementTime(doc.data().entering_time, doc.data().leaving_time);
+
+        var tableRow = document.createElement('tr');
+        var emailCell = document.createElement('td');
+        var enteringTimeCell = document.createElement('td');
+        var leavingTimeCell = document.createElement('td');
+        var facultyCell = document.createElement('td');
+        var engagementTimeCell = document.createElement('td');
+
+        emailCell.textContent = name;
+        enteringTimeCell.textContent = enteringTime ? enteringTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'N/A';
+        leavingTimeCell.textContent = leavingTime ? leavingTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : 'N/A';
+        facultyCell.textContent = faculty;
+        engagementTimeCell.textContent = engagementTime;
+
+        tableRow.appendChild(emailCell);
+        tableRow.appendChild(enteringTimeCell);
+        tableRow.appendChild(leavingTimeCell);
+        tableRow.appendChild(facultyCell);
+        tableRow.appendChild(engagementTimeCell);
+        usersTable.appendChild(tableRow);
+      });
+
+      var facultyTable = document.createElement('table');
+      var facultyTableHeader = document.createElement('tr');
+      var facultyHeader = document.createElement('th');
+      var numOfAttendeesHeader = document.createElement('th');
+
+      facultyHeader.textContent = 'Faculty';
+      numOfAttendeesHeader.textContent = 'Number of Attendees';
+
+      facultyTableHeader.appendChild(facultyHeader);
+      facultyTableHeader.appendChild(numOfAttendeesHeader);
+      facultyTable.appendChild(facultyTableHeader);
+
+      var facultyAttendeesMap = {};
+
+      querySnapshot.forEach((doc) => {
+        var faculty = doc.data().faculty;
+
+        if (faculty in facultyAttendeesMap) {
+          facultyAttendeesMap[faculty]++;
+        } else {
+          facultyAttendeesMap[faculty] = 1;
+        }
+      });
+
+      for (var faculty in facultyAttendeesMap) {
+        var facultyRow = document.createElement('tr');
+        var facultyCell = document.createElement('td');
+        var numOfAttendeesCell = document.createElement('td');
+
+        facultyCell.textContent = faculty;
+        numOfAttendeesCell.textContent = facultyAttendeesMap[faculty];
+
+        facultyRow.appendChild(facultyCell);
+        facultyRow.appendChild(numOfAttendeesCell);
+        facultyTable.appendChild(facultyRow);
+      }
+
+      dataContainer.appendChild(usersTable);
+      dataContainer.appendChild(facultyTable);
+    });
+
+    function formatTime(timestamp) {
+      if (!timestamp || isNaN(timestamp)) {
+        return null;
+      }
+
+      var date;
+
+      if (timestamp instanceof Date) {
+        date = timestamp;
+      } else if (typeof timestamp === "number") {
+        date = new Date(timestamp);
+      } else if (typeof timestamp === "string") {
+        date = new Date(timestamp.replace(/-/g, "/"));
+      } else {
+        return null;
+      }
+
+      if (isNaN(date.getTime())) {
+        return null;
+      }
+
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      return {
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+      };
+    }
+
+    function calculateEngagementTime(enteringTime, leavingTime) {
+      if (!enteringTime || !leavingTime) {
+        return "N/A";
+      }
+
+      var enteringHours = enteringTime.hours || 0;
+      var enteringMinutes = enteringTime.minutes || 0;
+      var enteringSeconds = enteringTime.seconds || 0;
+
+      var leavingHours = leavingTime.hours || 0;
+      var leavingMinutes = leavingTime.minutes || 0;
+      var leavingSeconds = leavingTime.seconds || 0;
+
+      var enteringSecondsTotal = enteringHours * 3600 + enteringMinutes * 60 + enteringSeconds;
+      var leavingSecondsTotal = leavingHours * 3600 + leavingMinutes * 60 + leavingSeconds;
+
+      var diff = Math.abs(leavingSecondsTotal - enteringSecondsTotal);
+      var hours = Math.floor(diff / 3600);
+      var minutes = Math.floor((diff % 3600) / 60);
+      var seconds = Math.floor(diff % 60);
+
+      return hours + 'h ' + minutes + 'm ' + seconds + 's';
+    }
+  </script>
+</body>
+</html>
